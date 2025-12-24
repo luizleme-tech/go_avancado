@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 //func main() {
 //
 //	x := 10
@@ -10,10 +12,10 @@ package main
 //	//fmt.Println(p, *p)
 //}
 
-//func main() {
-//	x := create()
-//	fmt.Println(*x)
-//}
+func main() {
+	x := create()
+	fmt.Println(*x)
+}
 
 //func main() {
 //	// erro de dereferencia em runtime
