@@ -1,32 +1,86 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+// Mapas
+
+// o valor do indice 0 de um mapa é nulo, assim como o valor 0 de um slice
+// mapas em go são desordenados
 
 //func main() {
-//	arr := [5]int{1, 2, 3, 4, 5}
-//	slice := arr[:2:2]
-//	fmt.Println(slice, cap(slice))
+//	var m map[string]string
+//	fmt.Println(m == nil)
 //}
 
 //func main() {
-//	slice := []int{1, 2, 3, 4}
-//	foo(slice)
+//	m := make(map[string]string)
+//	fmt.Println(m == nil)
 //}
-//
-//func foo(slice []int) {
-//	_ = slice[3] // bounds check
-//	fmt.Println(slice[0])
-//	fmt.Println(slice[1])
-//	fmt.Println(slice[2])
-//	fmt.Println(slice[3])
+
+//func main() {
+//	m := map[string]string{
+//		"Pedro":   "Pessoa",
+//		"Joaquim": "Pedro",
+//	}
+//	fmt.Println(m == nil)
+//	fmt.Println(m)
 //}
+
+// Mapa de Slice
+
+//func main() {
+//	m := map[string][]int{
+//		"Pedro": {1, 2, 3},
+//	}
+//	fmt.Println(m)
+//}
+
+// obtendo um elemento de um mapa
+//func main() {
+//	m := make(map[string]string)
+//	m["Pedro"] = "Pessoa"
+//	valor, ok := m["Pedro"] // ok diz se a chave existe
+//	fmt.Println(valor, ok)
+//	delete(m, "Pedro")
+//	valor, ok = m["Pedro"]
+//	fmt.Println(valor, ok)
+//}
+
+//retirando uma chave Nan de um mapa
+
+//func main() {
+//	f := math.NaN()
+//	f2 := math.NaN()
+//	m := map[float64]string{
+//		f:  "Pedro",
+//		f2: "[Pessoa]",
+//	}
+//	fmt.Println(m)
+//	valor, ok := m[f]
+//	fmt.Println(valor, ok)
+//	delete(m, f)
+//	fmt.Println(m)
+//	clear(m)
+//	fmt.Println(m)
+//}
+
+// iterando em um mapa
 
 func main() {
-	slice := []int{1, 2, 3, 4}
-	foo(slice)
-	fmt.Println(slice)
-}
+	m := map[string]string{
+		"Pedro":   "Pessoa",
+		"Joaquim": "Pedro",
+	}
+	//for k, v := range m {
+	//	fmt.Println(k, v)
+	//}
 
-func foo(slice []int) {
-	slice[0] = 123 // aqui se altera o slice pois ele é passado por referencia, para ser por valor deveria ser um array
+	for k := range m {
+		if k == "Pedro" {
+			delete(m, k)
+		}
+	}
+	fmt.Println(m)
 }
